@@ -12,6 +12,9 @@ export async function queryActivities() {
 export async function queryRule(params) {
   return request(`/api/rule?${stringify(params)}`);
 }
+export async function fetchArticle(params) {
+    return request(`/api/articles?${stringify(params)}`);
+}
 
 export async function removeRule(params) {
   return request('/api/rule', {
@@ -61,19 +64,57 @@ export async function queryFakeList(params) {
 }
 
 export async function fakeAccountLogin(params) {
-  return request('/api/login/account', {
+  return request('/api/users/login', {
     method: 'POST',
     body: params,
   });
 }
 
 export async function fakeRegister(params) {
-  return request('/api/register', {
+  return request('/api/users/sign-up', {
     method: 'POST',
     body: params,
   });
 }
+export async function createClassification(params) {
+    return request('/api/categories', {
+        method: 'POST',
+        body: params,
+    });
+}
+export async function removeItem(params) {
+    return request(`/api/categories/${params.articleCategoryId}`, {
+        method: 'DELETE',
+
+    });
+}
+export async function removeArticleItem(params) {
+    return request(`/api/categories-articles/${params.articleCategoryId}/articles/${params.articleId }`, {
+        method: 'DELETE',
+    });
+}
+export async function updataClassification(params) {
+    return request(`/api/categories/${params.categoryId}`,{
+        method:'PUT',
+        body:params
+    })
+}
+export async function fetchList(params) {
+    return request(`/api/categories?${stringify(params)}`, );
+}
+export async function updateauthToken(params) {
+    return request(`/api/users/new/token`, );
+}
+export async function fetchListCategory(params) {
+    return request(`/api/categories-articles/${params.categoryId}/articles?${stringify(params)}`, );
+}
+export async function getArticleContent(params) {
+    return request(`/api/categories/${params.articleCategoryId}`, );
+}
 
 export async function queryNotices() {
   return request('/api/notices');
+}
+export async function getQnToken() {
+    return request('/upload-token');
 }

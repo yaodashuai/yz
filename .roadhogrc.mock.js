@@ -122,6 +122,196 @@ const proxy = {
       "path": "/base/category/list"
     });
   },
+    'GET /api/article-categories':(req,res) =>{
+    res.status(200).send({
+        "totalPages": 1,
+        "data": [
+            {
+                "id": 1,
+                "code": 0,
+                "name": "??",
+                "createdAt": "2018-05-02T08:12:35.000+0000",
+                "updatedAt": "2018-05-02T08:12:35.000+0000"
+            },
+            {
+                "id": 2,
+                "code": 675897,
+                "name": "??",
+                "createdAt": "2018-05-07T10:48:31.000+0000",
+                "updatedAt": "2018-05-07T10:48:31.000+0000"
+            },
+            {
+                "id": 3,
+                "code": 4535545,
+                "name": "??",
+                "createdAt": "2018-05-07T10:48:39.000+0000",
+                "updatedAt": "2018-05-07T10:48:39.000+0000"
+            },
+            {
+                "id": 4,
+                "code": 65464646,
+                "name": "??",
+                "createdAt": "2018-05-07T10:48:46.000+0000",
+                "updatedAt": "2018-05-07T10:48:46.000+0000"
+            },
+            {
+                "id": 5,
+                "code": 434343,
+                "name": "??",
+                "createdAt": "2018-05-07T10:49:13.000+0000",
+                "updatedAt": "2018-05-07T10:49:13.000+0000"
+            },
+            {
+                "id": 6,
+                "code": 323,
+                "name": "??",
+                "createdAt": "2018-05-07T10:49:29.000+0000",
+                "updatedAt": "2018-05-07T10:49:29.000+0000"
+            },
+            {
+                "id": 7,
+                "code": 574897,
+                "name": "??",
+                "createdAt": "2018-05-07T10:49:43.000+0000",
+                "updatedAt": "2018-05-07T10:49:43.000+0000"
+            },
+            {
+                "id": 8,
+                "code": 4543,
+                "name": "??",
+                "createdAt": "2018-05-07T10:49:53.000+0000",
+                "updatedAt": "2018-05-07T10:49:53.000+0000"
+            },
+            {
+                "id": 9,
+                "code": 545454,
+                "name": "???",
+                "createdAt": "2018-05-07T10:51:03.000+0000",
+                "updatedAt": "2018-05-07T10:51:03.000+0000"
+            },
+            {
+                "id": 10,
+                "code": 6565676,
+                "name": "???",
+                "createdAt": "2018-05-07T10:51:17.000+0000",
+                "updatedAt": "2018-05-07T10:51:17.000+0000"
+            }
+        ],
+        "totalElements": 12
+    })
+    },
+    'POST /api/article-categories': (req,res) =>{
+      res.status(200).send({
+          "id": 2,
+          "code": 43738974,
+          "name": "小说",
+          "createdAt": "2018-05-07T05:54:53.480+0000",
+          "updatedAt": "2018-05-07T05:54:53.480+0000"
+      })
+    },
+    'GET /api/users/new/token':(req,res) =>{
+      res.status(200).send('Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsdW9zaGVuZyxudWxsIiwiZXhwIjoxNTI2NjI1NjE4fQ.9zQ8oB_TxpsFCnVdSibkhoD39XNoNsjvg-rtv6TbXFc')
+    },
+    'GET /api/articles':(req,res) =>{
+      res.status(200).send(
+          {
+              "totalPages": 1,
+              "data": [
+                  {
+                      "id": 2,
+                      "username": "luosheng",
+                      "title": "llalaal",
+                      "content": "??????????????????????????????????????????",
+                      "author": "????",
+                      "releaseDate": null,
+                      "status": "DRAFT",
+                      "viewCount": 0,
+                      "category": {
+                          "id": 2,
+                          "code": 675897,
+                          "name": "??",
+                          "createdAt": "2018-05-07T10:48:31.000+0000",
+                          "updatedAt": "2018-05-07T10:48:31.000+0000"
+                      },
+                      "summary": "??????????????????????????",
+                      "source": null,
+                      "coverImage": null,
+                      "tags": [
+                          {
+                              "id": 7,
+                              "name": "???????",
+                              "code": "???????",
+                              "createdAt": "2018-05-08T01:44:48.000+0000",
+                              "updatedAt": "2018-05-08T01:44:48.000+0000"
+                          },
+                          {
+                              "id": 6,
+                              "name": "??i??",
+                              "code": "??i??",
+                              "createdAt": "2018-05-08T01:44:48.000+0000",
+                              "updatedAt": "2018-05-08T01:44:48.000+0000"
+                          }
+                      ],
+                      "createdAt": "2018-05-08T01:44:48.000+0000",
+                      "updatedAt": "2018-05-08T01:44:48.000+0000"
+                  },
+                  {
+                      "id": 3,
+                      "username": "luosheng",
+                      "title": "llalaal",
+                      "content": "??????????????????????????????????????????",
+                      "author": "????",
+                      "releaseDate": null,
+                      "status": "DRAFT",
+                      "viewCount": 0,
+                      "category": {
+                          "id": 2,
+                          "code": 675897,
+                          "name": "??",
+                          "createdAt": "2018-05-07T10:48:31.000+0000",
+                          "updatedAt": "2018-05-07T10:48:31.000+0000"
+                      },
+                      "summary": "??????????????????????????",
+                      "source": null,
+                      "coverImage": null,
+                      "tags": [
+                          {
+                              "id": 8,
+                              "name": "??",
+                              "code": "??",
+                              "createdAt": "2018-05-08T01:46:07.000+0000",
+                              "updatedAt": "2018-05-08T01:46:07.000+0000"
+                          }
+                      ],
+                      "createdAt": "2018-05-08T01:46:07.000+0000",
+                      "updatedAt": "2018-05-08T01:46:07.000+0000"
+                  }
+              ],
+              "totalElements": 2
+          }
+
+      )
+    },
+    'POST /api/users/login': (req, res) => {
+    res.status(200).send({
+            "token": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsdW9zaGVuZyxudWxsIiwiZXhwIjoxNTI2NTM0MzA3fQ.kmRFL0rXe0HIRVup33r8Jo1vIx7LGAXIMMC2flTC0Hk",
+            "user": {
+            "id": 2,
+                "username": "luosheng",
+                "createdAt": "2018-05-07T05:18:10.000+0000",
+                "updatedAt": "2018-05-07T05:18:10.000+0000",
+                "roles": [
+                {
+                    "id": 3,
+                    "name": "ROLE_STUDENT",
+                    "description": "学生",
+                    "createdAt": null,
+                    "updatedAt": null
+                }
+            ]
+        }
+    });
+    },
   'GET /api/401': (req, res) => {
     res.status(401).send({
       "timestamp": 1513932555104,

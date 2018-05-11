@@ -9,6 +9,7 @@
     "antd": "^3.3.0",
     "bizcharts": "^3.1.4-beta.3",
     "bizcharts-plugin-slider": "^2.0.1",
+    "braft-editor": "^1.8.12",
     "classnames": "^2.2.5",
     "dva": "^2.1.0",
     "dva-loading": "^1.0.4",
@@ -25,6 +26,8 @@
     "omit.js": "^1.0.0",
     "path-to-regexp": "^2.2.0",
     "prop-types": "^15.6.1",
+    "qiniu": "^7.1.4",
+    "qiniu-js": "^2.2.2",
     "qs": "^6.5.1",
     "rc-drawer-menu": "^0.5.6",
     "react": "^16.2.0",
@@ -82,7 +85,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:eggjs/egg-ant-design-pro.git"
+    "url": "https://github.com/yaodashuai/yz.git"
   },
   "author": "popomore",
   "license": "MIT"

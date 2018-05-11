@@ -2,6 +2,8 @@ import fetch from 'dva/fetch';
 import { notification } from 'antd';
 import { routerRedux } from 'dva/router';
 import store from '../index';
+const token = (JSON.parse(window.localStorage.getItem('auth'))||{}).token
+
 
 const codeMessage = {
   200: '服务器成功返回请求的数据。',
@@ -43,14 +45,18 @@ function checkStatus(response) {
  * @return {object}           An object containing either "data" or "err"
  */
 export default function request(url, options) {
-  const defaultOptions = {
-    credentials: 'include',
-  };
+  const defaultOptions = token ? {
+      credentials: 'include',
+      cache: 'no-store',
+      headers:{
+          Authorization :token
+      }
+  }:{cache: 'no-store',credentials: 'include'}
   const newOptions = { ...defaultOptions, ...options };
   if (newOptions.method === 'POST' || newOptions.method === 'PUT') {
     if (!(newOptions.body instanceof FormData)) {
       newOptions.headers = {
-        Accept: 'application/json',
+        Accept: '*/*',
         'Content-Type': 'application/json; charset=utf-8',
         ...newOptions.headers,
       };
@@ -59,7 +65,6 @@ export default function request(url, options) {
       // newOptions.body is FormData
       newOptions.headers = {
         Accept: 'application/json',
-        'Content-Type': 'multipart/form-data',
         ...newOptions.headers,
       };
     }
@@ -67,13 +72,13 @@ export default function request(url, options) {
 
   return fetch(url, newOptions)
     .then(checkStatus)
-    .then((response) => {
+    .then(response => {
       if (newOptions.method === 'DELETE' || response.status === 204) {
         return response.text();
       }
       return response.json();
     })
-    .catch((e) => {
+    .catch(e => {
       const { dispatch } = store;
       const status = e.name;
       if (status === 401) {

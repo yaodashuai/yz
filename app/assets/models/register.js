@@ -7,11 +7,12 @@ export default {
 
   state: {
     status: undefined,
+    auth: undefined,
   },
 
   effects: {
-    *submit(_, { call, put }) {
-      const response = yield call(fakeRegister);
+    *submit({ payload }, { call, put }) {
+      const response = yield call(fakeRegister, payload);
       yield put({
         type: 'registerHandle',
         payload: response,
@@ -21,11 +22,13 @@ export default {
 
   reducers: {
     registerHandle(state, { payload }) {
+      // setAuthority(payload.token);
       setAuthority('user');
       reloadAuthorized();
       return {
         ...state,
-        status: payload.status,
+        // status: payload.status,
+        auth: payload,
       };
     },
   },

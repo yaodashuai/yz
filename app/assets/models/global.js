@@ -1,14 +1,22 @@
-import { queryNotices } from '../services/api';
+import { queryNotices, updateauthToken } from '../services/api';
 
 export default {
   namespace: 'global',
 
   state: {
-    collapsed: false,
-    notices: [],
+      collapsed: false,
+      notices: [],
+      newToken:''
   },
 
   effects: {
+    *updateToken({payload},{call,put}){
+      const response =  yield call(updateauthToken)
+        yield put({
+            type:'saveNewTop',
+            payload:response
+        })
+    },
     *fetchNotices(_, { call, put }) {
       const data = yield call(queryNotices);
       yield put({
@@ -34,6 +42,12 @@ export default {
   },
 
   reducers: {
+    saveNewTop(state,{payload}){
+      return{
+          ...state,
+          newToken:payload.newToken
+      }
+    },
     changeLayoutCollapsed(state, { payload }) {
       return {
         ...state,

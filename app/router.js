@@ -7,4 +7,5 @@ module.exports = app => {
   const { router, controller } = app;
   router.all('/api/*', controller.home.proxy);
   router.get('/', controller.home.index);
+  router.get('/upload-token', controller.home.token);
 };
